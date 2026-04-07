@@ -1,0 +1,4 @@
+name: cloudflared
+namespace: cloudflared
+type: kustomize
+wave: '5'
