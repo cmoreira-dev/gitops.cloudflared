@@ -6,12 +6,12 @@ metadata:
 spec:
   project: homelab
   source:
-    repoURL: https://github.com/cmoreira-dev/gitops.echoserver.git
+    repoURL: https://github.com/cmoreira-dev/gitops.cloudflared.git
     targetRevision: main
-    path: kustomize/echoserver
+    path: kustomize/cloudflared
   destination:
     server: https://kubernetes.default.svc
-    namespace: echoserver
+    namespace: cloudflared
   syncPolicy:
     automated:
       prune: true
@@ -19,9 +19,3 @@ spec:
     syncOptions:
       - ServerSideApply=true
       - CreateNamespace=true
-  ignoreDifferences:
-    - group: admissionregistration.k8s.io
-      kind: ValidatingWebhookConfiguration
-      jsonPointers:
-        - /webhooks/0/failurePolicy
-        - /webhooks/1/failurePolicy
